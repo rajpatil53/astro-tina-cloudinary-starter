@@ -1,20 +1,22 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import client from '../../../tina/__generated__/client';
+import type { BlogPartsFragment } from '../../../tina/__generated__/types';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
+	const {data: {blogConnection:{edges:blogEdges}}} = await client.queries.blogConnection();
+	return blogEdges?.map((blogEdge) => ({
+		params: { slug: blogEdge!.node!.slug },
+		props: blogEdge!.node,
 	}));
 }
-type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
-const { Content } = await post.render();
+type Props = BlogPartsFragment;
+
+const blog = Astro.props;
 ---
 
-<BlogPost {...post.data}>
-	<Content />
+<BlogPost {...blog}>
+	<TinaMarkdown content={blog.body}  />;
 </BlogPost>
