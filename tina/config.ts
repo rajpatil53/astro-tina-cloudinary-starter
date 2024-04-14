@@ -13,7 +13,8 @@ export default defineConfig({
   clientId: process.env.PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
-
+  // Replace with your content repo name
+  localContentPath: "../../astro-tina-cloudinary-starter-content",
   build: {
     outputFolder: "admin",
     publicFolder: "public",
