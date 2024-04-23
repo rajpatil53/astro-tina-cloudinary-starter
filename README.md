@@ -3,7 +3,7 @@
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/~/github.com/rajpatil53/astro-tina-cloudinary-starter)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/rajpatil53/astro-tina-cloudinary-starter)
 
-> Use `separate-content-repo` branch if you want to have separate repositories for code and content as mentioned in this [guide](https://tina.io/guides/tinacms/separate-content-repo/guide/).
+> This branch is setup to have separate repositories for code and content as mentioned in this [guide](https://tina.io/guides/tinacms/separate-content-repo/guide/). Use `main` branch if you want a single repository for code and content.
 
 ![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
