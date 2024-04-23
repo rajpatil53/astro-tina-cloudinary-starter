@@ -1,14 +1,9 @@
-# Astro Starter Kit: Blog
+# Astro Starter With TinaCMS And Cloudinary
 
-```sh
-npm create astro@latest -- --template blog
-```
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/~/github.com/rajpatil53/astro-tina-cloudinary-starter)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/rajpatil53/astro-tina-cloudinary-starter)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> Use `separate-content-repo` branch if you want to have separate repositories for code and content as mentioned in this [guide](https://tina.io/guides/tinacms/separate-content-repo/guide/).
 
 ![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
@@ -20,18 +15,31 @@ Features:
 - ✅ Sitemap support
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
+- ✅ TinaCMS integration
+- ✅ Cloudinary integration for asset management
+- ✅ Vercel deployment ready
+
+> Hydbrid or server output targets will need additional configuration for Vercel deployment. Read more [here](https://docs.astro.build/en/guides/integrations-guide/vercel/).
+
+## Caveats
+
+- Asset management using Cloudinary does not work in dev environment as serverless function to handle media interactions is not available.
 
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
+├── api/
+│   ├── cloudinary/
+│       ├── [...media].js
 ├── public/
 ├── src/
 │   ├── components/
 │   ├── content/
 │   ├── layouts/
 │   └── pages/
+├── tina/
 ├── astro.config.mjs
 ├── README.md
 ├── package.json
@@ -46,22 +54,22 @@ The `src/content/` directory contains "collections" of related Markdown and MDX 
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+The `tina` directory contains files related to TinaCMS. The TinaCMS documentation for Astro integration can be found [here](https://tina.io/docs/frameworks/astro/)
+
+Vercel serverless function required to authenticate the Cloudinary media interactions is added in `api/` directory. Refer [Tina docs](https://tina.io/docs/reference/media/external/cloudinary/) for more details.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command                   | Action                                                         |
+| :------------------------ | :------------------------------------------------------------- |
+| `npm install`             | Installs dependencies                                          |
+| `npm run dev`             | Starts TinaCMS server and local dev server at `localhost:4321` |
+| `npm run build`           | Build your production site to `./dist/`                        |
+| `npm run preview`         | Preview your build locally, before deploying                   |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check`               |
+| `npm run astro -- --help` | Get help using the Astro CLI                                   |
 
 ## Credit
 
